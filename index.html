@@ -62,6 +62,18 @@
         </svg>
     </button>
 
+    <!-- Desktop Navigation (top-left, visible on md and up) -->
+    <nav
+        class="fixed top-4 right-4 z-100 hidden md:flex space-x-6 bg-white/70 dark:bg-gray-900/70 px-20 py-2 rounded-lg shadow">
+        <a href="#about" class="text-sm font-medium hover:underline">About</a>
+        <a href="#skills" class="text-sm font-medium hover:underline">Skills</a>
+        <a href="#experience" class="text-sm font-medium hover:underline">Experience</a>
+        <a href="#education" class="text-sm font-medium hover:underline">Education</a>
+        <a href="#projects" class="text-sm font-medium hover:underline">Projects</a>
+        <a href="#certifications" class="text-sm font-medium hover:underline">Certifications</a>
+        <a href="#contact" class="text-sm font-medium hover:underline">Contact</a>
+    </nav>
+
     <!-- Mobile Menu Button -->
     <button id="menu-toggle" class="fixed top-4 left-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 md:hidden"
         aria-label="Toggle menu">
@@ -69,20 +81,6 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
     </button>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-        <nav class="flex flex-col space-y-4">
-            <a href="#about" class="px-4 py-2 text-lg font-medium">About</a>
-            <a href="#skills" class="px-4 py-2 text-lg font-medium">Skills</a>
-            <a href="#experience" class="px-4 py-2 text-lg font-medium">Experience</a>
-            <a href="#education" class="px-4 py-2 text-lg font-medium">Education</a>
-            <a href="#projects" class="px-4 py-2 text-lg font-medium">Projects</a>
-            <a href="#certifications" class="px-4 py-2 text-lg font-medium">Certifications</a>
-            <a href="#contact" class="px-4 py-2 text-lg font-medium">Contact</a>
-        </nav>
-    </div>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12 max-w-4xl">
@@ -349,40 +347,93 @@
         <!-- Projects Section -->
         <section id="projects" class="mb-16">
             <h2 class="text-2xl font-bold mb-4 flex items-center">
-                <span class="mr-2">🚀</span> Projects
+                <span class="mr-2">🚀</span> Projects & GitHub Repositories
             </h2>
-            <div class="space-y-6">
-                <div class="project-card">
-                    <h3 class="font-semibold mb-1 flex items-center">
-                        <span class="mr-2 flutter-icon">🅕</span> Flutter Mobile Apps
+            <p class="mb-4">
+                Explore my
+                <a href="https://github.com/felexkuria" class="social-link" target="_blank" rel="noopener noreferrer">
+                    GitHub profile
+                </a> for more projects and contributions. Below are some highlights:
+            </p>
+
+            <div class="space-y-8">
+                <!-- Flutter Projects -->
+                <div class="repo-card p-4 bg-white dark:bg-gray-800 rounded shadow">
+                    <h3 class="font-semibold flex items-center text-xl">
+                        <span class="mr-2">📱</span> Flutter Projects
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Developed cross-platform mobile applications using Flutter and
-                        Dart, focusing on user experience and performance. Projects
-                        include utility apps and open-source contributions.
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">
+                        As an intermediate Flutter developer, I work on mobile applications, including DoNut Counter,
+                        Budget UI App, and more—actively refining my cross-platform development skills.
                     </p>
                 </div>
-                <div class="project-card">
-                    <h3 class="font-semibold mb-1 flex items-center">
-                        <span class="mr-2 aws-icon">🅰️</span> AWS Static Hosting
+
+                <!-- AWS & Cloud Projects -->
+                <div class="repo-card p-4 bg-white dark:bg-gray-800 rounded shadow">
+                    <h3 class="font-semibold flex items-center text-xl">
+                        <span class="mr-2">☁️</span> AWS & Cloud Projects
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Deployed static websites and web apps using AWS S3, CloudFront,
-                        and Route 53, with a focus on security, performance, and cost
-                        optimization.
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">
+                        Cloud-based projects include static website deployments on AWS S3 & CloudFront, serverless
+                        setups using AWS Lambda & API Gateway, and more.
                     </p>
                 </div>
-                <div class="project-card">
-                    <h3 class="font-semibold mb-1 flex items-center">
-                        <span class="mr-2">⚡</span> SCADA System Automation
+
+                <!-- YouTube Learning Playlists -->
+                <div class="repo-card p-4 bg-white dark:bg-gray-800 rounded shadow">
+                    <h3 class="font-semibold flex items-center text-xl">
+                        <span class="mr-2">🎥</span> Learning Playlists on YouTube
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Automated data logging
-                        reducing downtime and improving system reliability.
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">
+                        I also share educational content on YouTube. Here are some curated playlists:
                     </p>
+
+                    <!-- Grid Layout for Playlists -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                        <!-- Git & GitHub Mastery -->
+                        <div>
+                            <h4 class="font-semibold mb-2">📂 Complete Git & GitHub Mastery 2025</h4>
+                            <div class="aspect-video">
+                                <iframe class="w-full h-full rounded"
+                                    src="https://www.youtube.com/embed/videoseries?si=QeWJNKfgX2DX9R_G&amp;list=PLW7MVar5PPOexKtaynNL28koHwvS3vJbF"
+                                    title="Git & GitHub Mastery Playlist" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <!-- AWS Cloud Practitioner -->
+                        <div>
+                            <h4 class="font-semibold mb-2">☁️ AWS Cloud Practitioner Certification – Complete Course
+                                2025</h4>
+                            <div class="aspect-video">
+                                <iframe class="w-full h-full rounded"
+                                    src="https://www.youtube.com/embed/videoseries?si=31AIN8MkawyG3jdX&amp;list=PLW7MVar5PPOc8ECQW1UA-BYoY9jf56zkg"
+                                    title="AWS Cloud Practitioner Playlist" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <!-- Node.js Mastery -->
+                        <div>
+                            <h4 class="font-semibold mb-2">🟢 Complete Node.js Mastery Course</h4>
+                            <div class="aspect-video">
+                                <iframe class="w-full h-full rounded"
+                                    src="https://www.youtube.com/embed/videoseries?si=-9yMMQIJK2G0Kaj2&amp;list=PLW7MVar5PPOdN-zVcRoBLGMb1Ui66wL8J"
+                                    title="Node.js Mastery Playlist" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Certifications Section -->
         <section id="certifications" class="mb-16">
@@ -464,7 +515,8 @@
 
         <!-- Footer -->
         <footer class="text-center text-gray-500 dark:text-gray-400">
-            <p>© 2025 Felex Kuria Irungu. Built for the AWS Builder Challenge.</p>
+            <p>© 2025 Felex Kuria Irungu.<a href="builder.html" class="text-sm font-medium hover:underline">Built for
+                    the AWS Builder Challenge.</a></p>
         </footer>
     </main>
 
