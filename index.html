@@ -1,58 +1,84 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Felex Kuria Irungu: AWS Certified Cloud Practitioner and Electrical Technician with expertise in cloud infrastructure and SCADA systems.">
-    <title>Felex Kuria Irungu | AWS Cloud & Electrical Technician</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Felex Kuria Irungu: AWS Certified Cloud Practitioner, Electrical Technician, and Flutter Developer with expertise in cloud infrastructure, SCADA systems, and mobile app development." />
+    <title>
+        Felex Kuria Irungu | AWS Cloud, Electrical & Flutter Developer
+    </title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font from Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ["Inter", "sans-serif"],
                     },
-                }
-            }
-        }
+                },
+            },
+        };
     </script>
     <style type="text/tailwindcss">
-        .aws-icon { @apply text-orange-500 dark:text-orange-400; }
-        .cert-badge { @apply inline-block bg-gray-100 dark:bg-gray-700 p-2 rounded-lg border border-gray-200 dark:border-gray-600; }
-        .social-link { @apply text-blue-600 dark:text-blue-400 hover:underline; }
+        .aws-icon {
+        @apply text-orange-500 dark:text-orange-400;
+      }
+      .flutter-icon {
+        @apply text-blue-400 dark:text-blue-300;
+      }
+      .cert-badge {
+        @apply inline-block bg-gray-100 dark:bg-gray-700 p-2 rounded-lg border border-gray-200 dark:border-gray-600;
+      }
+      .social-link {
+        @apply text-blue-600 dark:text-blue-400 hover:underline;
+      }
+      .project-card {
+        @apply p-4 bg-gray-100 dark:bg-gray-800 rounded-lg;
+      }
     </style>
 </head>
+
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
     <!-- Theme Toggle -->
-    <button id="theme-toggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700" aria-label="Toggle dark mode">
-        <svg id="theme-toggle-dark" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+    <button id="theme-toggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+        aria-label="Toggle dark mode">
+        <svg id="theme-toggle-dark" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+            </path>
         </svg>
-        <svg id="theme-toggle-light" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        <svg id="theme-toggle-light" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
         </svg>
     </button>
 
     <!-- Mobile Menu Button -->
-    <button id="menu-toggle" class="fixed top-4 left-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 md:hidden" aria-label="Toggle menu">
+    <button id="menu-toggle" class="fixed top-4 left-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 md:hidden"
+        aria-label="Toggle menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
     </button>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
         <nav class="flex flex-col space-y-4">
             <a href="#about" class="px-4 py-2 text-lg font-medium">About</a>
             <a href="#skills" class="px-4 py-2 text-lg font-medium">Skills</a>
             <a href="#experience" class="px-4 py-2 text-lg font-medium">Experience</a>
             <a href="#education" class="px-4 py-2 text-lg font-medium">Education</a>
+            <a href="#projects" class="px-4 py-2 text-lg font-medium">Projects</a>
             <a href="#certifications" class="px-4 py-2 text-lg font-medium">Certifications</a>
             <a href="#contact" class="px-4 py-2 text-lg font-medium">Contact</a>
         </nav>
@@ -62,18 +88,20 @@
     <main class="container mx-auto px-4 py-12 max-w-4xl">
         <!-- Hero Section -->
         <section class="flex flex-col items-center text-center mb-16">
-            <img src="https://avatars.githubusercontent.com/u/50685357?v=4" alt="Felex Kuria Irungu" class="w-32 h-32 rounded-full mb-4 object-cover border-4 border-orange-500 dark:border-orange-400">
+            <img src="https://avatars.githubusercontent.com/u/50685357?v=4" alt="Felex Kuria Irungu"
+                class="w-32 h-32 rounded-full mb-4 object-cover border-4 border-orange-500 dark:border-orange-400" />
             <h1 class="text-4xl font-bold mb-2">Felex Kuria Irungu</h1>
             <p class="text-xl text-gray-600 dark:text-gray-300">
-                AWS Certified Cloud Practitioner | Electrical Technician
+                AWS Certified Cloud Practitioner | Electrical Technician | Flutter
+                Developer
             </p>
-            <div class="mt-4 cert-badge">
-                <span class="aws-icon">🅰️</span> AWS Certified
-            </div>
             <div class="mt-4 flex space-x-4">
-                <a href="https://www.linkedin.com/in/felex-kuria-45292b9b/" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/felexkuria" class="social-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.linkedin.com/in/felex-kuria-45292b9b/" class="social-link" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/felexkuria" class="social-link" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.youtube.com/channel/UCUWjYRjLM9xFJl8t-ZMwYvg" class="social-link" target="_blank"
+                    rel="noopener noreferrer">YouTube</a>
             </div>
         </section>
 
@@ -83,10 +111,23 @@
                 <span class="mr-2">👋</span> About Me
             </h2>
             <p class="mb-4">
-                Dedicated <strong>AWS Certified Cloud Practitioner</strong> and <strong>Electrical Technician</strong> with 7+ years of experience in SCADA systems, domestic wiring, and electrical motors. Expertise in AWS EC2, S3, Lambda, and infrastructure optimization. Proven ability to enhance system performance, ensure compliance, and implement automation for cost-efficient solutions.
+                Dedicated <strong>AWS Certified Cloud Practitioner</strong>,
+                <strong>Electrical Technician</strong>, and
+                <strong>intermediate Flutter Developer</strong> with 7+ years of
+                experience in SCADA systems, domestic wiring, and electrical motors. I
+                bring expertise in AWS cloud services, infrastructure optimization,
+                and mobile app development.
+            </p>
+            <p class="mb-4">
+                As an electrical technician, I specialize in SCADA systems, 33KV
+                substation maintenance, and solar photovoltaic system sizing and
+                installation. My cloud journey includes AWS EC2, S3, Lambda, and
+                automation for cost-efficient, scalable solutions.
             </p>
             <p>
-                Skilled in diagnosing machine faults, logging downtimes, and remote collaboration. Passionate about continuous learning, cloud-native development, and renewable energy solutions.
+                I am passionate about continuous learning, cloud-native development,
+                and bridging the gap between hardware and software through innovative
+                projects and open-source contributions.
             </p>
         </section>
 
@@ -115,8 +156,16 @@
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                     <h3 class="font-semibold mb-2">Programming & DevOps</h3>
                     <ul class="list-disc pl-5">
-                        <li>Python, Bash, CI/CD (Jenkins, GitLab)</li>
-                        <li>Agile, DevOps Practices, Monitoring (CloudWatch, Datadog)</li>
+                        <li>Python, Bash, Flutter, Dart</li>
+                        <li>CI/CD (Jenkins, GitLab), Agile, DevOps Practices</li>
+                        <li>Monitoring: CloudWatch, Datadog</li>
+                    </ul>
+                </div>
+                <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <h3 class="font-semibold mb-2">Mobile Development</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Flutter, Dart, State Management (Provider, Riverpod)</li>
+                        <li>Cross-platform app development for Android & iOS</li>
                     </ul>
                 </div>
             </div>
@@ -129,21 +178,118 @@
             </h2>
             <div class="space-y-6">
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <h3 class="font-semibold mb-1">Kenya Railways Corporation</h3>
-                    <p class="text-gray-600 dark:text-gray-300 italic">33KV Substation Attendant | 2017 - Present</p>
+                    <!-- Kenya Railways Corporation Logo + Name -->
+                    <div class="flex items-center space-x-4">
+                        <img src="https://media.licdn.com/dms/image/v2/C4D0BAQFmJzdgPM0JUw/company-logo_200_200/company-logo_200_200/0/1631323552140?e=1758153600&v=beta&t=CGH1PjkTMRQtD-ekYQdmINE2wvAI_Ng6w-OLeqMzhG8"
+                            alt="Kenya Railways Corporation"
+                            class="w-16 h-16 rounded-full object-cover border-4 border-orange-500 dark:border-orange-400" />
+                        <h3 class="text-xl font-semibold">Kenya Railways Corporation</h3>
+                    </div>
+
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Electrical Technician | Contract | Jun 2022 - Present · 3 yrs 3
+                        mos
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Mombasa, Mombasa County, Kenya · On-site
+                    </p>
+                    <h4 class="font-semibold mt-2">🔑 Key Achievements & Projects:</h4>
                     <ul class="list-disc pl-5 mt-2">
-                        <li>Control equipment including current converters, voltage transformers, and circuit breakers.</li>
-                        <li>Record switchboard readings, compile data on electric power usage, and detect line disturbances.</li>
-                        <li>Inspect transformers, batteries, and circuit breakers; manage repair preparation and system integrity.</li>
-                        <li>Compile periodic reports for system planning and load condition management.</li>
+                        <li>
+                            Maintained 99.99% substation uptime, ensuring uninterrupted
+                            power supply to railway stations.
+                        </li>
+                        <li>
+                            Successfully modified the wiring system of fluorescent bulbs to
+                            accommodate energy-efficient LED bulbs, resulting in
+                            longer-lasting performance, improved energy efficiency, and
+                            significant reductions in electricity costs.
+                        </li>
+                        <li>
+                            Collaborated with contractors under the Mombasa Terminus -
+                            Mombasa Town MGR Electrical Project, ensuring seamless
+                            integration of electrical systems.
+                        </li>
+                        <li>
+                            Trained and mentored new employees on power distribution
+                            processes, ensuring they understood how electricity is supplied
+                            to various railway stations.
+                        </li>
+                    </ul>
+                    <h4 class="font-semibold mt-4">🔑 Key Responsibilities:</h4>
+                    <ul class="list-disc pl-5 mt-2">
+                        <li>
+                            Operated and maintained electrical control equipment, including
+                            current converters, voltage transformers, and circuit breakers,
+                            to ensure efficient power distribution.
+                        </li>
+                        <li>
+                            Monitored switchboard instruments and recorded data on
+                            electricity usage and distribution for system analysis.
+                        </li>
+                        <li>
+                            Communicated with the Load Dispatcher to report electricity
+                            received at the substation and follow switching instructions.
+                        </li>
+                        <li>
+                            Identified electrical disturbances such as short circuits, open
+                            circuits, and grounding issues through switchboard monitoring.
+                        </li>
+                        <li>
+                            Executed power interruption procedures using circuit breaker
+                            switches or control buttons to facilitate repairs and restore
+                            service through alternate circuits.
+                        </li>
+                        <li>
+                            Assisted in the installation and maintenance of electrical
+                            systems, including lighting, power distribution, and control
+                            systems.
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <!-- China Road and Bridge Corporation (CRBC) Logo + Name -->
+                    <div class="flex items-center space-x-4">
+                        <img src="https://media.licdn.com/dms/image/v2/C4D0BAQEHKsiSbNT3qg/company-logo_200_200/company-logo_200_200/0/1631331747670?e=1758153600&v=beta&t=aDHa9idEGpPFEUru3jgY8SNrPPep-h2bFGib4nFIf2k"
+                            alt="China Road and Bridge Corporation (CRBC)"
+                            class="w-16 h-16 rounded-full object-cover border-4 border-blue-600 dark:border-blue-400" />
+                        <h3 class="text-xl font-semibold">
+                            China Road and Bridge Corporation (CRBC)
+                        </h3>
+                    </div>
+
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Electrical Technician | Contract | 2017 - 2022 · 4 yrs
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Mombasa, Mombasa County, Kenya · On-site
+                    </p>
+                    <ul class="list-disc pl-5 mt-2">
+                        <li>
+                            Maintained and repaired electrical systems in residential and
+                            commercial buildings.
+                        </li>
+                        <li>
+                            Installed and tested electrical wiring, fixtures, and equipment.
+                        </li>
+                        <li>Diagnosed and resolved electrical faults and issues.</li>
+                        <li>Ensured compliance with safety standards and regulations.</li>
                     </ul>
                 </div>
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                     <h3 class="font-semibold mb-1">Elexe Technical Services</h3>
-                    <p class="text-gray-600 dark:text-gray-300 italic">Assistant Electrical Technician (Internship) | 2014 - 2016</p>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Assistant Electrical Technician (Internship) | 2014 - 2016
+                    </p>
                     <ul class="list-disc pl-5 mt-2">
-                        <li>Installed, tested, and diagnosed domestic wiring, air conditioning, alarm, and electric fencing systems.</li>
-                        <li>Inducted technicians and trained customers on remote-controlled systems.</li>
+                        <li>
+                            Installed, tested, and diagnosed domestic wiring, air
+                            conditioning, alarm, and electric fencing systems.
+                        </li>
+                        <li>
+                            Inducted technicians and trained customers on remote-controlled
+                            systems.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -157,23 +303,83 @@
             <div class="space-y-4">
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                     <h4 class="font-semibold">AWS Cloud Practitioner & re/Start</h4>
-                    <p class="text-gray-600 dark:text-gray-300 italic">Ajira Digital | 2024</p>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Ajira Digital | 2024
+                    </p>
                 </div>
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <h4 class="font-semibold">Diploma in Electrical and Electronics Engineering (Power Option)</h4>
-                    <p class="text-gray-600 dark:text-gray-300 italic">Technical Training Institute | 2013 - 2016</p>
+                    <h4 class="font-semibold">
+                        Diploma in Electrical and Electronics Engineering (Power Option)
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Michuki Technical Training Institute | 2013 - 2016
+                    </p>
                 </div>
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <h4 class="font-semibold">Certificate in Railway Electrical Installation and Maintenance</h4>
-                    <p class="text-gray-600 dark:text-gray-300 italic">Railway Training Institute | 2018</p>
+                    <h4 class="font-semibold">
+                        Certificate in Railway Electrical Installation and Maintenance
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Railway Training Institute | 2018
+                    </p>
                 </div>
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
                     <h4 class="font-semibold">Certificate in Web Development</h4>
-                    <p class="text-gray-600 dark:text-gray-300 italic">eMobilis (Mastercard Foundation Scholarship) | 2022</p>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        eMobilis (Mastercard Foundation Scholarship) | 2022
+                    </p>
                 </div>
                 <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <h4 class="font-semibold">Certificate in Solar Photovoltaic System</h4>
-                    <p class="text-gray-600 dark:text-gray-300 italic">Michuki Technical Training Institute | 2019</p>
+                    <h4 class="font-semibold">
+                        Certificate in Solar Photovoltaic System
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Michuki Technical Training Institute | 2019
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <h4 class="font-semibold">Complete Flutter Developer Course</h4>
+                    <p class="text-gray-600 dark:text-gray-300 italic">
+                        Online Course | 2021 - 2022
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-16">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="mr-2">🚀</span> Projects
+            </h2>
+            <div class="space-y-6">
+                <div class="project-card">
+                    <h3 class="font-semibold mb-1 flex items-center">
+                        <span class="mr-2 flutter-icon">🅕</span> Flutter Mobile Apps
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Developed cross-platform mobile applications using Flutter and
+                        Dart, focusing on user experience and performance. Projects
+                        include utility apps and open-source contributions.
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="font-semibold mb-1 flex items-center">
+                        <span class="mr-2 aws-icon">🅰️</span> AWS Static Hosting
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Deployed static websites and web apps using AWS S3, CloudFront,
+                        and Route 53, with a focus on security, performance, and cost
+                        optimization.
+                    </p>
+                </div>
+                <div class="project-card">
+                    <h3 class="font-semibold mb-1 flex items-center">
+                        <span class="mr-2">⚡</span> SCADA System Automation
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Automated data logging
+                        reducing downtime and improving system reliability.
+                    </p>
                 </div>
             </div>
         </section>
@@ -183,20 +389,45 @@
             <h2 class="text-2xl font-bold mb-4 flex items-center">
                 <span class="mr-2">🏆</span> Certifications
             </h2>
-            <div class="space-y-4">
-                <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <h4 class="font-semibold flex items-center">
-                        <span class="mr-2 aws-icon">🅰️</span> AWS Certified Cloud Practitioner
-                    </h4>
-                    <p class="text-gray-600 dark:text-gray-300 italic">
-                        Validation #: cebdc0ccf7eb4dcbb263db976043b521 |
-                        <a href="https://aws.amazon.com/verification" class="social-link" target="_blank" rel="noopener noreferrer">Verify</a>
-                    </p>
-                </div>
-                <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <h4 class="font-semibold">NITA Grade Test in Electrical Wireman</h4>
-                    <p class="text-gray-600 dark:text-gray-300 italic">Michuki Technical Training Institute | 2014</p>
-                </div>
+
+            <!-- AWS Certified Cloud Practitioner -->
+            <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg mb-4">
+                <h4 class="font-semibold flex items-center">
+                    <div class="w-8 h-8 mr-2 flex items-center justify-center bg-white rounded">
+                        <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" alt="AWS Logo" class="w-6 h-6">
+                    </div>
+                    AWS Certified Cloud Practitioner
+                </h4>
+                <p class="text-gray-600 dark:text-gray-300 italic">
+                    Validation #: cebdc0ccf7eb4dcbb263db976043b521 |
+                    <a href="https://aws.amazon.com/verification" class="text-blue-600 dark:text-blue-400 underline"
+                        target="_blank" rel="noopener noreferrer">Verify</a>
+                </p>
+            </div>
+
+            <!-- Google Cloud Digital Leader -->
+            <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <h4 class="font-semibold flex items-center">
+                    <div class="w-8 h-8 mr-2 flex items-center justify-center bg-white rounded">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
+                            alt="Google Cloud Logo" class="w-6 h-6">
+                    </div>
+                    Google Cloud Digital Leader
+                </h4>
+                <p class="text-gray-600 dark:text-gray-300 italic">
+                    Validation #: ac3d4b6b2ead4fd781ca588ffcafc1a9 |
+                    <a href="https://www.credential.net/" class="text-blue-600 dark:text-blue-400 underline"
+                        target="_blank" rel="noopener noreferrer">Verify</a>
+                </p>
+            </div>
+
+
+            <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <h4 class="font-semibold">NITA Grade Test in Electrical Wireman</h4>
+                <p class="text-gray-600 dark:text-gray-300 italic">
+                    Michuki Technical Training Institute | 2014
+                </p>
+            </div>
             </div>
         </section>
 
@@ -208,17 +439,24 @@
             <form class="space-y-4 max-w-lg">
                 <div>
                     <label for="name" class="block mb-1 font-medium">Name</label>
-                    <input type="text" id="name" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600" placeholder="Your name" required>
+                    <input type="text" id="name"
+                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                        placeholder="Your name" required />
                 </div>
                 <div>
                     <label for="email" class="block mb-1 font-medium">Email</label>
-                    <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600" placeholder="Your email" required>
+                    <input type="email" id="email"
+                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                        placeholder="Your email" required />
                 </div>
                 <div>
                     <label for="message" class="block mb-1 font-medium">Message</label>
-                    <textarea id="message" rows="4" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600" placeholder="Your message" required></textarea>
+                    <textarea id="message" rows="4"
+                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                        placeholder="Your message" required></textarea>
                 </div>
-                <button type="submit" class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 dark:bg-orange-400 dark:hover:bg-orange-500">
+                <button type="submit"
+                    class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 dark:bg-orange-400 dark:hover:bg-orange-500">
                     Send Message
                 </button>
             </form>
@@ -233,4 +471,5 @@
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>
