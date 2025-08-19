@@ -7,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
-    <div class="bg-white shadow-2xl rounded-2xl p-6 w-full max-w-2xl">
-        <h1 class="text-3xl font-bold text-gray-800 mb-6">🚀 AWS Builder Challenge - To Do</h1>
+<body class="dark:bg-gray-900 min-h-screen flex items-center justify-center p-6">
+    <div class="dark:bg-gray-900 text-gray-800 dark:text-gray-200 shadow-2xl rounded-2xl p-6 w-full max-w-2xl">
+        <h1 class="text-3xl font-bold text-white mb-6">🚀 AWS Builder Challenge - To Do</h1>
 
         <!-- Day 1 Section -->
         <h2 class="text-xl font-semibold text-blue-700 mb-3">Day 1 - Secure Foundation</h2>
@@ -31,6 +31,7 @@
             day1: [
                 { task: "Create AWS Free Tier account", time: 10 },
                 { task: "Enable MFA on root user", time: 5 },
+                 { task: "Create Admin group (Administrators) & attach AdministratorAccess", time: 2 },
                 { task: "Create IAM admin user", time: 5 },
                 { task: "Switch to IAM user & enable billing access", time: 5 },
                 { task: "Set up budget alerts ($5)", time: 3 },
@@ -43,7 +44,15 @@
                 { task: "Explore bucket & test security", time: 5 },
                 { task: "Organize bucket structure", time: 5 },
                 { task: "Understand costs & Free Tier credits", time: 2 },
+            ],
+            day3: [
+                { task: "Write your index.html", time: 15 },
+                { task: "Upload files to your S3 bucket", time: 10 },
+                { task: "Enable bucket access control + Static Website Hosting", time: 15 },
+                { task: "Copy and test your public website link", time: 5 },
+                { task: "Share your live site in your AWS Builder Challenge journal/LinkedIn", time: 10 },
             ]
+
         };
 
         function renderDay(dayId, listId, totalId, remainingId) {
