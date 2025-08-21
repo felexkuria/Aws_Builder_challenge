@@ -1,22 +1,24 @@
-// Toggle mobile menu
-document.getElementById('menu-toggle').addEventListener('click', () => {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('-translate-x-full');
-});
-
-// Toggle dark/light theme
-document.getElementById('theme-toggle').addEventListener('click', () => {
-    const html = document.documentElement;
-    const isDark = html.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+document.addEventListener('DOMContentLoaded', function() {
+    // Update theme toggle icons on load
     updateThemeToggle();
-});
+    
+    // Toggle mobile menu
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('-translate-x-full');
+    });
 
-// Check for saved theme preference
-if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-    updateThemeToggle();
-}
+    // Toggle dark/light theme
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+        }
+        updateThemeToggle();
+    });
+});
 
 function updateThemeToggle() {
     const isDark = document.documentElement.classList.contains('dark');
@@ -25,16 +27,22 @@ function updateThemeToggle() {
 }
 
 // Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            document.getElementById('mobile-menu').classList.add('-translate-x-full');
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.add('-translate-x-full');
+                }
+            }
+        });
     });
 });
