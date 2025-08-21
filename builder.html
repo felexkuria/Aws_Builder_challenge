@@ -24,6 +24,12 @@
         <div class="p-4 bg-gray-50 rounded-xl font-semibold text-gray-700">
             ⏱️ Day 2 Total Time: <span id="day2Total">0</span> min | Remaining: <span id="day2Remaining">0</span> min
         </div>
+        <!-- Day 3 Section -->
+        <h2 class="text-xl font-semibold text-purple-700 mb-3">Day 3 - Static Website</h2>
+        <ul id="day3" class="space-y-3 mb-6"></ul>
+        <div class="p-4 bg-gray-50 rounded-xl font-semibold text-gray-700">
+            ⏱️ Day 3 Total Time: <span id="day3Total">0</span> min | Remaining: <span id="day3Remaining">0</span> min
+        </div>
     </div>
 
     <script>
@@ -31,7 +37,7 @@
             day1: [
                 { task: "Create AWS Free Tier account", time: 10 },
                 { task: "Enable MFA on root user", time: 5 },
-                 { task: "Create Admin group (Administrators) & attach AdministratorAccess", time: 2 },
+                { task: "Create Admin group (Administrators) & attach AdministratorAccess", time: 2 },
                 { task: "Create IAM admin user", time: 5 },
                 { task: "Switch to IAM user & enable billing access", time: 5 },
                 { task: "Set up budget alerts ($5)", time: 3 },
@@ -94,6 +100,7 @@
 
         renderDay("day1", "day1", "day1Total", "day1Remaining");
         renderDay("day2", "day2", "day2Total", "day2Remaining");
+        renderDay("day3", "day3", "day3Total", "day3Remaining");
     </script>
 </body>
 
