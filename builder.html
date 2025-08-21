@@ -2,39 +2,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>AWS Challenge To-Do</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="dark:bg-gray-900 min-h-screen flex items-center justify-center p-6">
     <div class="dark:bg-gray-900 text-gray-800 dark:text-gray-200 shadow-2xl rounded-2xl p-6 w-full max-w-2xl">
-        <h1 class="text-3xl font-bold text-white mb-6">🚀 AWS Builder Challenge - To Do</h1>
+        <h1 class="text-3xl font-bold text-white mb-6">
+            🚀 AWS Builder Challenge - To Do
+        </h1>
 
         <!-- Day 1 Section -->
-        <h2 class="text-xl font-semibold text-blue-700 mb-3">Day 1 - Secure Foundation</h2>
+        <h2 class="text-xl font-semibold text-blue-700 mb-3">
+            Day 1 - Secure Foundation
+        </h2>
         <ul id="day1" class="space-y-3 mb-6"></ul>
         <div class="mb-8 p-4 bg-gray-50 rounded-xl font-semibold text-gray-700">
-            ⏱️ Day 1 Total Time: <span id="day1Total">0</span> min | Remaining: <span id="day1Remaining">0</span> min
+            ⏱️ Day 1 Total Time: <span id="day1Total">0</span> min | Remaining:
+            <span id="day1Remaining">0</span> min
         </div>
 
         <!-- Day 2 Section -->
-        <h2 class="text-xl font-semibold text-green-700 mb-3">Day 2 - Private Cloud Storage</h2>
+        <h2 class="text-xl font-semibold text-green-700 mb-3">
+            Day 2 - Private Cloud Storage
+        </h2>
         <ul id="day2" class="space-y-3 mb-6"></ul>
         <div class="p-4 bg-gray-50 rounded-xl font-semibold text-gray-700">
-            ⏱️ Day 2 Total Time: <span id="day2Total">0</span> min | Remaining: <span id="day2Remaining">0</span> min
+            ⏱️ Day 2 Total Time: <span id="day2Total">0</span> min | Remaining:
+            <span id="day2Remaining">0</span> min
         </div>
         <!-- Day 3 Section -->
-        <h2 class="text-xl font-semibold text-purple-700 mb-3">Day 3 - Static Website</h2>
+        <h2 class="text-xl font-semibold text-purple-700 mb-3">
+            Day 3 - Static Website
+        </h2>
         <ul id="day3" class="space-y-3 mb-6"></ul>
         <div class="p-4 bg-gray-50 rounded-xl font-semibold text-gray-700">
-            ⏱️ Day 3 Total Time: <span id="day3Total">0</span> min | Remaining: <span id="day3Remaining">0</span> min
+            ⏱️ Day 3 Total Time: <span id="day3Total">0</span> min | Remaining:
+            <span id="day3Remaining">0</span> min
         </div>
         <!-- Day 4 Section -->
-        <h2 class="text-xl font-semibold text-purple-700 mb-3">🌍 Day 4: Global Distribution </h2>
+        <h2 class="text-xl font-semibold text-purple-700 mb-3">
+            🌍 Day 4: Global Distribution
+        </h2>
         <ul id="day4" class="space-y-3 mb-6"></ul>
         <div class="p-4 bg-gray-50 rounded-xl font-semibold text-gray-700">
-            ⏱️ Day 4 Total Time: <span id="day4Total">0</span> min | Remaining: <span id="day4Remaining">0</span> min
+            ⏱️ Day 4 Total Time: <span id="day4Total">0</span> min | Remaining:
+            <span id="day4Remaining">0</span> min
+        </div>
+        <!-- Day 5 Section -->
+        <h2 class="text-xl font-semibold text-purple-700 mb-3">
+            🚀 Day 5: Professional Deployment – GitHub + Amplify + Modern Workflow
+        </h2>
+        <ul id="day5" class="space-y-3 mb-6"></ul>
+        <div class="p-4 bg-gray-50 rounded-xl font-semibold text-gray-700">
+            ⏱️ Day 5 Total Time: <span id="day4Total">0</span> min | Remaining:
+            <span id="day5Remaining">0</span> min
         </div>
     </div>
 
@@ -43,7 +66,10 @@
             day1: [
                 { task: "Create AWS Free Tier account", time: 10 },
                 { task: "Enable MFA on root user", time: 5 },
-                { task: "Create Admin group (Administrators) & attach AdministratorAccess", time: 2 },
+                {
+                    task: "Create Admin group (Administrators) & attach AdministratorAccess",
+                    time: 2,
+                },
                 { task: "Create IAM admin user", time: 5 },
                 { task: "Switch to IAM user & enable billing access", time: 5 },
                 { task: "Set up budget alerts ($5)", time: 3 },
@@ -60,21 +86,48 @@
             day3: [
                 { task: "Write your index.html", time: 15 },
                 { task: "Upload files to your S3 bucket", time: 10 },
-                { task: "Enable bucket access control + Static Website Hosting", time: 15 },
+                {
+                    task: "Enable bucket access control + Static Website Hosting",
+                    time: 15,
+                },
                 { task: "Copy and test your public website link", time: 5 },
-                { task: "Share your live site in your AWS Builder Challenge journal/LinkedIn", time: 10 },
-            ]
-            , day4: [
+                {
+                    task: "Share your live site in your AWS Builder Challenge journal/LinkedIn",
+                    time: 10,
+                },
+            ],
+            day4: [
                 { task: "Understand why distance affects website speed", time: 5 },
-                { task: "Learn how global content delivery works (CDN basics)", time: 5 },
-                { task: "Create a CloudFront distribution for your website", time: 10 },
-                { task: "Connect CloudFront securely to your private S3 bucket", time: 5 },
+                {
+                    task: "Learn how global content delivery works (CDN basics)",
+                    time: 5,
+                },
+                {
+                    task: "Create a CloudFront distribution for your website",
+                    time: 10,
+                },
+                {
+                    task: "Connect CloudFront securely to your private S3 bucket",
+                    time: 5,
+                },
                 { task: "Set index.html as the default root object", time: 5 },
                 { task: "Test your CloudFront global URL", time: 5 },
                 { task: "Verify S3 bucket remains private and secure", time: 5 },
-            ]
-
-
+            ],
+            day5: [
+                { task: "Understand Git and GitHub basics", time: 5 },
+                { task: "Create GitHub account and repository", time: 10 },
+                { task: "Upload website files to GitHub", time: 10 },
+                {
+                    task: "Deploy website using AWS Amplify + GitHub integration",
+                    time: 15,
+                },
+                {
+                    task: "Test automatic deployment by editing code in GitHub",
+                    time: 10,
+                },
+                { task: "Clean up CloudFront distribution and S3 bucket", time: 10 },
+            ],
         };
 
         function renderDay(dayId, listId, totalId, remainingId) {
@@ -87,7 +140,8 @@
                 remaining += item.time;
 
                 const li = document.createElement("li");
-                li.className = "flex items-center justify-between bg-gray-50 p-3 rounded-xl shadow-sm";
+                li.className =
+                    "flex items-center justify-between bg-gray-50 p-3 rounded-xl shadow-sm";
 
                 li.innerHTML = `
           <div class="flex items-center space-x-3">
@@ -118,6 +172,7 @@
         renderDay("day2", "day2", "day2Total", "day2Remaining");
         renderDay("day3", "day3", "day3Total", "day3Remaining");
         renderDay("day4", "day4", "day4Total", "day4Remaining");
+        renderDay("day5", "day5", "day5Total", "day5Remaining");
     </script>
 </body>
 
