@@ -20,40 +20,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Contact form handler
-    // document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData(e.target);
-    //     const body = {
-    //         name: formData.get('name'),
-    //         email: formData.get('email'),
-    //         message: formData.get('message')
-    //     };
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const body = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+        };
         
-    //     const responseMsg = document.getElementById('responseMessage');
+        const submitBtn = document.getElementById('submit-btn');
+        const messageDiv = document.getElementById('form-message');
         
-    //     try {
-    //         const response = await fetch('https://vwlcza423katcqtgyyylfrutgu0wihsv.lambda-url.us-west-2.on.aws/', {
-    //             method: 'POST',
-    //             headers: { 'Content-Type': 'application/json' },
-    //             body: JSON.stringify(body)
-    //         });
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        messageDiv.style.display = 'none';
+        
+        try {
+            const response = await fetch('https://gcxundjlotnhtfa4xnyi5ib7ay0txtuk.lambda-url.us-west-2.on.aws/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
             
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-    //         }
-            
-    //         const result = await response.json();
-    //         responseMsg.textContent = result.message || 'Message sent successfully!';
-    //         responseMsg.className = 'mt-4 text-center text-green-600 dark:text-green-400';
-    //         e.target.reset();
-    //     } catch (error) {
-    //         console.error('Contact form error:', error);
-    //         // Fallback: Show success message even if Lambda fails
-    //         responseMsg.textContent = 'Thank you for your message! I\'ll get back to you soon.';
-    //         responseMsg.className = 'mt-4 text-center text-green-600 dark:text-green-400';
-    //         e.target.reset();
-    //     }
-    // });
+            if (response.ok) {
+                messageDiv.textContent = 'Message sent successfully! Thank you for reaching out.';
+                messageDiv.className = 'mb-4 p-3 rounded-lg bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100';
+                messageDiv.style.display = 'block';
+                e.target.reset();
+            } else {
+                throw new Error('Failed to send message');
+            }
+        } catch (error) {
+            messageDiv.textContent = 'Failed to send message. Please try again.';
+            messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
+            messageDiv.style.display = 'block';
+        }
+        
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+    });
 });
 
 function updateThemeToggle() {
