@@ -20,40 +20,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Contact form handler
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const body = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message')
-        };
+    // document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    //     e.preventDefault();
+    //     const formData = new FormData(e.target);
+    //     const body = {
+    //         name: formData.get('name'),
+    //         email: formData.get('email'),
+    //         message: formData.get('message')
+    //     };
         
-        const responseMsg = document.getElementById('responseMessage');
+    //     const responseMsg = document.getElementById('responseMessage');
         
-        try {
-            const response = await fetch('https://vwlcza423katcqtgyyylfrutgu0wihsv.lambda-url.us-west-2.on.aws/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            });
+    //     try {
+    //         const response = await fetch('https://vwlcza423katcqtgyyylfrutgu0wihsv.lambda-url.us-west-2.on.aws/', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify(body)
+    //         });
             
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    //         }
             
-            const result = await response.json();
-            responseMsg.textContent = result.message || 'Message sent successfully!';
-            responseMsg.className = 'mt-4 text-center text-green-600 dark:text-green-400';
-            e.target.reset();
-        } catch (error) {
-            console.error('Contact form error:', error);
-            // Fallback: Show success message even if Lambda fails
-            responseMsg.textContent = 'Thank you for your message! I\'ll get back to you soon.';
-            responseMsg.className = 'mt-4 text-center text-green-600 dark:text-green-400';
-            e.target.reset();
-        }
-    });
+    //         const result = await response.json();
+    //         responseMsg.textContent = result.message || 'Message sent successfully!';
+    //         responseMsg.className = 'mt-4 text-center text-green-600 dark:text-green-400';
+    //         e.target.reset();
+    //     } catch (error) {
+    //         console.error('Contact form error:', error);
+    //         // Fallback: Show success message even if Lambda fails
+    //         responseMsg.textContent = 'Thank you for your message! I\'ll get back to you soon.';
+    //         responseMsg.className = 'mt-4 text-center text-green-600 dark:text-green-400';
+    //         e.target.reset();
+    //     }
+    // });
 });
 
 function updateThemeToggle() {
