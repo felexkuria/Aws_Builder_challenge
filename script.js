@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
             messageDiv.style.display = 'none';
 
             try {
-                const response = await fetch('https://edbt7hnsejfqgnmcqxx5dhddaa0idvcp.lambda-url.us-east-1.on.aws/', {
+                const response = await fetch('https://4id6m7wtnrmrk44a5ey3aib2cq0sjubj.lambda-url.us-east-1.on.aws/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
