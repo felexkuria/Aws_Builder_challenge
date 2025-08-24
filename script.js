@@ -20,9 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Contact form handler
     const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
+    const submitBtn = document.getElementById('submit-btn');
+    const messageDiv = document.getElementById('form-message');
+    
+    if (contactForm && submitBtn && messageDiv) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
             const formData = new FormData(e.target);
             const body = {
                 name: formData.get('name'),
@@ -30,9 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 message: formData.get('message')
             };
 
-            const submitBtn = document.getElementById('submit-btn');
-            const messageDiv = document.getElementById('form-message');
-
+            // Show loading state
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             messageDiv.style.display = 'none';
@@ -45,25 +47,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 if (response.ok) {
-                    try {
-                        const result = await response.json();
-                        messageDiv.textContent = result.message || 'Message sent successfully!';
-                    } catch {
-                        messageDiv.textContent = 'Message sent successfully!';
-                    }
+                    // Show success message
+                    messageDiv.textContent = 'Message sent successfully! Thank you for reaching out.';
                     messageDiv.className = 'mb-4 p-3 rounded-lg bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100';
                     messageDiv.style.display = 'block';
                     e.target.reset();
                 } else {
-                    throw new Error(`HTTP ${response.status}`);
+                    throw new Error('Failed to send');
                 }
             } catch (error) {
-                console.error('Contact form error:', error);
+                // Show error message
                 messageDiv.textContent = 'Failed to send message. Please try again.';
                 messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
                 messageDiv.style.display = 'block';
             }
 
+            // Reset button
             submitBtn.textContent = 'Send Message';
             submitBtn.disabled = false;
         });
