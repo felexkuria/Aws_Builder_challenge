@@ -43,16 +43,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(body)
             });
             
-            if (response.ok) {
-                messageDiv.textContent = 'Message sent successfully! Thank you for reaching out.';
+            const result = await response.json();
+            
+            if (response.ok && result.message) {
+                messageDiv.textContent = result.message;
                 messageDiv.className = 'mb-4 p-3 rounded-lg bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100';
                 messageDiv.style.display = 'block';
                 e.target.reset();
             } else {
-                throw new Error('Failed to send message');
+                throw new Error(result.error || 'Failed to send message');
             }
         } catch (error) {
-            messageDiv.textContent = 'Failed to send message. Please try again.';
+            console.error('Contact form error:', error);
+            messageDiv.textContent = error.message || 'Failed to send message. Please try again.';
             messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
             messageDiv.style.display = 'block';
         }
