@@ -47,19 +47,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 if (response.ok) {
-                    // Show success message
-                    messageDiv.textContent = 'Message sent successfully! Thank you for reaching out.';
-                    messageDiv.className = 'mb-4 p-3 rounded-lg bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100';
-                    messageDiv.style.display = 'block';
-                    e.target.reset();
+                    showMessage('Message sent successfully! Thank you for reaching out.', 'success');
+                    contactForm.reset();
                 } else {
-                    throw new Error('Failed to send');
+                    showMessage('Failed to send message. Please try again.', 'error');
                 }
             } catch (error) {
-                // Show error message
-                messageDiv.textContent = 'Failed to send message. Please try again.';
-                messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
-                messageDiv.style.display = 'block';
+                showMessage('Network error. Please check your connection and try again.', 'error');
             }
 
             // Reset button
@@ -87,3 +81,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+function updateThemeToggle() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('theme-toggle-dark').classList.toggle('hidden', !isDark);
+    document.getElementById('theme-toggle-light').classList.toggle('hidden', isDark);
+}
+
+function showMessage(text, type) {
+    const messageDiv = document.getElementById('form-message');
+    messageDiv.textContent = text;
+    if (type === 'success') {
+        messageDiv.className = 'mb-4 p-3 rounded-lg bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100';
+    } else {
+        messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
+    }
+    messageDiv.style.display = 'block';
+}
