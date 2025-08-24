@@ -1,7 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Update theme toggle icons on load
+document.addEventListener('DOMContentLoaded', function () {
     updateThemeToggle();
-    
+
     // Toggle mobile menu
     document.getElementById('menu-toggle').addEventListener('click', () => {
         document.getElementById('mobile-menu').classList.toggle('-translate-x-full');
@@ -20,62 +19,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Contact form handler
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const body = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message')
-        };
-        
-        const submitBtn = document.getElementById('submit-btn');
-        const messageDiv = document.getElementById('form-message');
-        
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        messageDiv.style.display = 'none';
-        
-        try {
-            const response = await fetch('https://edbt7hnsejfqgnmcqxx5dhddaa0idvcp.lambda-url.us-east-1.on.aws/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            });
-            
-            if (response.ok) {
-                try {
-                    const result = await response.json();
-                    messageDiv.textContent = result.message || 'Message sent successfully!';
-                } catch (jsonError) {
-                    messageDiv.textContent = 'Message sent successfully!';
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const body = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+
+            const submitBtn = document.getElementById('submit-btn');
+            const messageDiv = document.getElementById('form-message');
+
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            messageDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('https://edbt7hnsejfqgnmcqxx5dhddaa0idvcp.lambda-url.us-east-1.on.aws/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+
+                if (response.ok) {
+                    try {
+                        const result = await response.json();
+                        messageDiv.textContent = result.message || 'Message sent successfully!';
+                    } catch {
+                        messageDiv.textContent = 'Message sent successfully!';
+                    }
+                    messageDiv.className = 'mb-4 p-3 rounded-lg bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100';
+                    messageDiv.style.display = 'block';
+                    e.target.reset();
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
                 }
-                messageDiv.className = 'mb-4 p-3 rounded-lg bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100';
+            } catch (error) {
+                console.error('Contact form error:', error);
+                messageDiv.textContent = 'Failed to send message. Please try again.';
+                messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
                 messageDiv.style.display = 'block';
-                e.target.reset();
-            } else {
-                throw new Error(`HTTP ${response.status}`);
             }
-        } catch (error) {
-            console.error('Contact form error:', error);
-            messageDiv.textContent = 'Failed to send message. Please try again.';
-            messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
-            messageDiv.style.display = 'block';
-        }
-        
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
-    });
-});
 
-function updateThemeToggle() {
-    const isDark = document.documentElement.classList.contains('dark');
-    document.getElementById('theme-toggle-dark').classList.toggle('hidden', !isDark);
-    document.getElementById('theme-toggle-light').classList.toggle('hidden', isDark);
-}
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+        });
+    }
 
-// Smooth scroll for anchor links
-document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
