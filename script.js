@@ -31,7 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const body = {
                 name: formData.get('name'),
                 email: formData.get('email'),
-                message: formData.get('message')
+                message: formData.get('message'),
+                phone: formData.get('phone') || 'Not provided',
+                company: formData.get('company') || 'Not provided',
+                subject: formData.get('subject') || 'General Inquiry',
+                priority: formData.get('priority') || 'Medium'
             };
 
             // Show loading state
