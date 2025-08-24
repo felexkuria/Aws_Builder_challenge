@@ -47,12 +47,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 if (response.ok) {
-                    showMessage('Message sent successfully! Thank you for reaching out.', 'success');
+                    const result = await response.json();
+                    showMessage(result.message || 'Message sent successfully!', 'success');
                     contactForm.reset();
                 } else {
-                    showMessage('Failed to send message. Please try again.', 'error');
+                    console.error('HTTP Error:', response.status, response.statusText);
+                    showMessage(`Failed to send message (${response.status}). Please try again.`, 'error');
                 }
             } catch (error) {
+                console.error('Network error:', error);
                 showMessage('Network error. Please check your connection and try again.', 'error');
             }
 
