@@ -502,70 +502,31 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="mb-16">
-            <h2 class="text-2xl font-bold mb-4 flex items-center">
-                <span class="mr-2">📧</span> Contact
-            </h2>
-            <p class="mb-4 text-gray-600 dark:text-gray-300">Have a question or want to connect? Send me a message!</p>
-            <div id="form-message" class="mb-4 p-3 rounded-lg" style="display: none;"></div>
-            <form id="contactForm" class="space-y-4 max-w-lg">
-                <div>
-                    <label for="name" class="block mb-1 font-medium">Name</label>
-                    <input type="text" name="name" id="name"
-                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                        placeholder="Your name" required />
-                </div>
-                <div>
-                    <label for="email" class="block mb-1 font-medium">Email</label>
-                    <input type="email" name="email" id="email"
-                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                        placeholder="Your email" required />
-                </div>
-                <div>
-                    <label for="phone" class="block mb-1 font-medium">Phone (Optional)</label>
-                    <input type="tel" name="phone" id="phone"
-                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                        placeholder="Your phone number" />
-                </div>
-                <div>
-                    <label for="company" class="block mb-1 font-medium">Company (Optional)</label>
-                    <input type="text" name="company" id="company"
-                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                        placeholder="Your company" />
-                </div>
-                <div>
-                    <label for="subject" class="block mb-1 font-medium">Subject</label>
-                    <select name="subject" id="subject"
-                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Project Collaboration">Project Collaboration</option>
-                        <option value="Job Opportunity">Job Opportunity</option>
-                        <option value="Technical Support">Technical Support</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="priority" class="block mb-1 font-medium">Priority</label>
-                    <select name="priority" id="priority"
-                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
-                        <option value="Low">Low</option>
-                        <option value="Medium" selected>Medium</option>
-                        <option value="High">High</option>
-                        <option value="Urgent">Urgent</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="message" class="block mb-1 font-medium">Message</label>
-                    <textarea name="message" id="message" rows="4"
-                        class="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                        placeholder="Your message" required></textarea>
-                </div>
-                <button type="submit" id="submit-btn"
-                    class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 dark:bg-orange-400 dark:hover:bg-orange-500">
-                    Send Message
-                </button>
-            </form>
-        </section>
+    <!-- CONTACT FORM SECTION - Added for user contact functionality -->
+    <section class="contact-form">
+        <h3>Get In Touch</h3>
+        <p>Have a question or want to connect? Send me a message!</p>
+        <!-- Form message container for success/error messages -->
+        <div id="form-message" class="form-message" style="display: none;"></div>
+        <form class="contact-form-container">
+            <!-- Contact form input fields -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <!-- Contact form submit button -->
+            <button type="submit" class="contact-submit-btn">Send Message</button>
+        </form>
+    </section>
+    <!-- END CONTACT FORM SECTION -->
 
         <!-- Footer -->
         <footer class="text-center text-gray-500 dark:text-gray-400">

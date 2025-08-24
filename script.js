@@ -19,49 +19,50 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Contact form handler
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submit-btn');
-    const messageDiv = document.getElementById('form-message');
+    const form = document.getElementById('contactForm');
     
-    if (contactForm && submitBtn && messageDiv) {
-        contactForm.addEventListener('submit', async (e) => {
+    if (form) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            const formData = new FormData(e.target);
-            const body = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                message: formData.get('message'),
-                phone: formData.get('phone') || 'Not provided',
-                company: formData.get('company') || 'Not provided',
-                subject: formData.get('subject') || 'General Inquiry',
-                priority: formData.get('priority') || 'Medium'
-            };
-
+    
+            const submitBtn = form.querySelector('#submit-btn');
+            const messageDiv = document.getElementById('form-message');
+    
             // Show loading state
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             messageDiv.style.display = 'none';
-
+    
+            // Get form data
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value,
+                phone: form.phone ? form.phone.value : 'Not provided',
+                company: form.company ? form.company.value : 'Not provided',
+                subject: form.subject ? form.subject.value : 'General Inquiry',
+                priority: form.priority ? form.priority.value : 'Medium'
+            };
+    
             try {
                 const response = await fetch('https://4id6m7wtnrmrk44a5ey3aib2cq0sjubj.lambda-url.us-east-1.on.aws/', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(body)
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
                 });
-
+    
                 if (response.ok) {
                     showMessage('Message sent successfully! Thank you for reaching out.', 'success');
-                    contactForm.reset();
+                    form.reset();
                 } else {
                     showMessage('Failed to send message. Please try again.', 'error');
                 }
             } catch (error) {
-                console.error('Actual error:', error);
-                showMessage('Message sent successfully! Thank you for reaching out.', 'success');
-                contactForm.reset();
+                showMessage('Network error. Please check your connection and try again.', 'error');
             }
-
+    
             // Reset button
             submitBtn.textContent = 'Send Message';
             submitBtn.disabled = false;
@@ -103,7 +104,7 @@ function showMessage(text, type) {
         messageDiv.className = 'mb-4 p-3 rounded-lg bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100';
     }
     messageDiv.style.display = 'block';
-    
+
     // Auto-hide after 10 seconds
     setTimeout(() => {
         messageDiv.style.display = 'none';
